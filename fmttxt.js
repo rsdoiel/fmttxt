@@ -22,7 +22,7 @@ FMTTXT.padding = function (chr, maxwidth) {
 
 
 // Left justify text
-FMTTXT.leftJustify = function (text, maxwidth, padding) {
+FMTTXT.left = function (text, maxwidth, padding) {
   var chr = padding || " ";
 
   if (text.length >= maxwidth) {
@@ -33,7 +33,7 @@ FMTTXT.leftJustify = function (text, maxwidth, padding) {
 };
 
 // Right justify text
-FMTTXT.rightJustify = function (text, maxwidth, padding) {
+FMTTXT.right = function (text, maxwidth, padding) {
   var chr = padding || " ";
 
   if (text.length >= maxwidth) {
@@ -46,15 +46,14 @@ FMTTXT.rightJustify = function (text, maxwidth, padding) {
 // Center text
 FMTTXT.center = function (text, maxwidth, padding) {
   var chr = padding || " ",
-      half_width = Math.floor(maxwidth / 2),
-      fill = this.padding(chr, half_width),
-      pos = Math.floor(maxwidth / 4); 
+      fill_width = Math.floor((maxwidth - text.length) / 2),
+      fill = this.padding(chr, fill_width);
 
   if (text.length >= maxwidth) {
     return text.substr(0, maxwidth);
   }
-
-  return [fill, text, fill].join("").substr(pos, maxwidth);
+  
+  return [fill, text, fill, chr].join("").substr(0,maxwidth);
 };
 
 if (typeof exports === "object") {

@@ -16,8 +16,8 @@ var assert = require("assert"),
 
 assert.ok(fmt);
 assert.equal(typeof fmt.padding, "function", "padding function missing");
-assert.equal(typeof fmt.leftJustify, "function", "leftJustify function missing");
-assert.equal(typeof fmt.rightJustify, "function", "rightJustify function missing");
+assert.equal(typeof fmt.left, "function", "left justify function missing");
+assert.equal(typeof fmt.right, "function", "right justify function missing");
 assert.equal(typeof fmt.center, "function", "center function missing");
 
 src = '+';
@@ -31,14 +31,14 @@ expected = "<br /><br /><br />";
 assert.equal(result, expected);
 
 src = "Hello World";
-result = fmt.leftJustify(src, 24, "+");
+result = fmt.left(src, 24, "+");
 expected = ["Hello World", fmt.padding("+", 24)].join("").substr(0,24);
 assert.equal(result.length, 24);
 assert.equal(result, expected, result + " != " + expected);
 
 
 src = "Hello World";
-result = fmt.rightJustify(src, 24, "+");
+result = fmt.right(src, 24, "+");
 expected = [fmt.padding("+", 24), "Hello World"].join("").substr(-24);
 assert.equal(result.length, 24);
 assert.equal(result, expected, result + " != " + expected);
@@ -48,6 +48,15 @@ src = "Hello World";
 result = fmt.center(src, 24, "+");
 expected = [fmt.padding("+", 12), "Hello World", fmt.padding("+", 12)].join("").substr(6,24);
 assert.equal(result.length, 24);
+assert.equal(result, expected, result + " != " + expected);
+
+// Bugs found by building examples.
+src = "Date";
+result = fmt.center(src, 24, "+");
+expected = "++++++++++Date++++++++++";
+assert.equal(expected.length, 24);
+assert.equal(result.length, 24);
+assert.equal(result, expected, "\n\t" + result + "\n\t" + expected);
 
 console.log("Success!");
 assert.equal(result, expected, result + " != " + expected);
