@@ -1,0 +1,24 @@
+{
+  "name": "fmttxt",
+  "version": "0.0.1",
+  "description": "Small library for formatting plain text.",
+  "main": "fmttxt.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node tests/fmttxt_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rsdoiel/fmttxt.git"
+  },
+  "keywords": [
+    "text",
+    "formatting"
+  ],
+  "author": "R. S. Doiel, <rsdoiel@gmail.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "6d94a59ea6bbb12689c1d32dbb0dc06daa189f21"
+}
