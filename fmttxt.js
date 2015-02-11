@@ -25,7 +25,7 @@ FMTTXT.padding = function (chr, maxwidth) {
 FMTTXT.left = function (text, maxwidth, padding) {
   var chr = padding || " ";
   // Make sure we have sane types.
-  if (text === undefined || maxwdith === undefined || padding === undefined) {
+  if (text === undefined || maxwidth === undefined || padding === undefined) {
       console.error("FMTTXT.left() called with Unsafe text, maxwidth or padding -->", text, maxwidth, padding);
   }
   if (text.length >= maxwidth) {
@@ -39,7 +39,7 @@ FMTTXT.left = function (text, maxwidth, padding) {
 FMTTXT.right = function (text, maxwidth, padding) {
   var chr = padding || " ";
   // Make sure we have sane types.
-  if (text === undefined || maxwdith === undefined || padding === undefined) {
+  if (text === undefined || maxwidth === undefined || padding === undefined) {
       console.error("FMTTXT.right() called with unsafe text, maxwidth or padding -->", text, maxwidth, padding);
   }
 
@@ -56,7 +56,7 @@ FMTTXT.center = function (text, maxwidth, padding) {
       fill_width = Math.floor((maxwidth - text.length) / 2),
       fill = this.padding(chr, fill_width);
   // Make sure we have sane types.
-  if (text === undefined || maxwdith === undefined || padding === undefined) {
+  if (text === undefined || maxwidth === undefined || padding === undefined) {
       console.error("FMTTXT.center() called with Unsafe text, maxwidth or padding -->", text, maxwidth, padding);
   }
 
