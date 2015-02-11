@@ -1,6 +1,6 @@
 {
   "name": "fmttxt",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Small library for formatting plain text.",
   "main": "fmttxt.js",
   "directories": {
@@ -12,6 +12,10 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/rsdoiel/fmttxt.git"
+  },
+  "engines" : {
+    "node" : "0.12.x",
+    "npm" : ">= 2.5.x"
   },
   "keywords": [
     "text",
