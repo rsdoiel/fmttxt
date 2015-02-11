@@ -24,9 +24,14 @@ FMTTXT.padding = function (chr, maxwidth) {
 // Left justify text
 FMTTXT.left = function (text, maxwidth, padding) {
   var chr = padding || " ";
-  // Make sure we have sane types.
-  if (text === undefined || maxwidth === undefined || padding === undefined) {
-      console.error("FMTTXT.left() called with Unsafe text, maxwidth or padding -->", text, maxwidth, padding);
+  // Do we have sane parameters?
+  if (typeof text !== "string") {
+      console.log("WARNING: FMTTXT.left() called unsafe text parameter -->", text);
+      text = "";
+  }
+  if (typeof maxwidth !== "number") {
+      console.log("WARNING: FMTTXT.left() called unsafe maxwidth -->", maxwidth);
+      maxwidth = 80;
   }
   if (text.length >= maxwidth) {
     return text.substr(0, maxwidth);
@@ -38,9 +43,14 @@ FMTTXT.left = function (text, maxwidth, padding) {
 // Right justify text
 FMTTXT.right = function (text, maxwidth, padding) {
   var chr = padding || " ";
-  // Make sure we have sane types.
-  if (text === undefined || maxwidth === undefined || padding === undefined) {
-      console.error("FMTTXT.right() called with unsafe text, maxwidth or padding -->", text, maxwidth, padding);
+  // Do we have sane parameters?
+  if (typeof text !== "string") {
+      console.log("WARNING: FMTTXT.right() called unsafe text parameter -->", text);
+      text = "";
+  }
+  if (typeof maxwidth !== "number") {
+      console.log("WARNING: FMTTXT.right() called unsafe maxwidth -->", maxwidth);
+      maxwidth = 80;
   }
 
   if (text.length >= maxwidth) {
@@ -55,11 +65,15 @@ FMTTXT.center = function (text, maxwidth, padding) {
   var chr = padding || " ",
       fill_width = Math.floor((maxwidth - text.length) / 2),
       fill = this.padding(chr, fill_width);
-  // Make sure we have sane types.
-  if (text === undefined || maxwidth === undefined || padding === undefined) {
-      console.error("FMTTXT.center() called with Unsafe text, maxwidth or padding -->", text, maxwidth, padding);
+  // Do we have sane parameters?
+  if (typeof text !== "string") {
+      console.log("WARNING: FMTTXT.center() called unsafe text parameter -->", text);
+      text = "";
   }
-
+  if (typeof maxwidth !== "number") {
+      console.log("WARNING: FMTTXT.center() called unsafe maxwidth -->", maxwidth);
+      maxwidth = 80;
+  }
   if (text.length >= maxwidth) {
     return text.substr(0, maxwidth);
   }

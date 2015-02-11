@@ -1,6 +1,6 @@
 {
   "name": "fmttxt",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Small library for formatting plain text.",
   "main": "fmttxt.js",
   "directories": {
